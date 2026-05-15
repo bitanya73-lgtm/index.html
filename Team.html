@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Team - Bahir Dar Kenema FC</title>
+    <style>
+        body {
+            background-image: url('football.jpg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.6);
+            height: 100vh;
+            position: relative;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        nav {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 40px;
+            font-size: 16px;
+        }
+
+        ul li {
+            margin-left: 15px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 6px 12px;
+            border: 1px solid transparent;
+            transition: 0.3s ease;
+            white-space: nowrap;
+        }
+
+        ul li a:hover,
+        ul li a.active {
+            background-color: #fff;
+            color: #000;
+            border-radius: 4px;
+        }
+
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .title h1 {
+            color: #fff;
+            font-size: 64px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            margin: 0;
+        }
+
+        .title h1 .colorful-text {
+            color: #FFFF00;
+            text-shadow: 0 0 15px rgba(255, 255, 0, 0.8), 0 0 25px rgba(255, 255, 0, 0.6);
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 50px 20px 20px;
+            color: #0ff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .player-card {
+            background-color: rgba(0,0,0,0.7);
+            border-radius: 10px;
+            width: 280px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,255,255,0.2);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .player-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,255,255,0.4);
+        }
+
+        .player-image {
+            display: none;
+        }
+
+        h3 {
+            margin: 20px 0 10px;
+            color: #0ff;
+            font-size: 3em;
+            text-shadow: 2px 2px 8px rgba(0,255,255,0.6);
+        }
+
+        p {
+            margin: 5px 0;
+            color: #e0e0e0;
+            font-size: 1em;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 12px;
+            display: inline-block;
+            color: #0ff;
+            font-size: 28px;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-icons a:hover {
+            color: #fff;
+            transform: scale(1.2);
+        }
+
+        .coach-card {
+            background-color: rgba(0,0,0,0.7);
+            border-radius: 10px;
+            width: 300px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(0,255,255,0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #0ff;
+            margin: 40px auto 20px auto;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coach-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,255,255,0.6);
+        }
+
+        .coach-image {
+            display: none;
+        }
+
+        .coach-card h3 {
+            font-size: 2.2em;
+            color: #fff;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .coach-card p {
+            font-size: 1.1em;
+            color: #c0c0c0;
+        }
+
+        .thoughts-section {
+            background-color: rgba(0, 0, 0, 0.75);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 50px auto;
+            max-width: 900px;
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
+            border: 1px solid rgba(0, 255, 255, 0.4);
+        }
+
+        .thoughts-section h2 {
+            color: #FFFF00;
+            text-shadow: 1px 1px 5px rgba(255, 255, 0, 0.7);
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .thoughts-section h3 {
+            color: #0ff;
+            font-size: 1.6em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+            padding-bottom: 5px;
+            text-align: left;
+        }
+
+        .thoughts-section p {
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .thoughts-section ul {
+            list-style-type: disc;
+            margin-left: 25px;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .thoughts-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .thoughts-section ul li strong {
+            color: #fff;
+        }
+
+        .thoughts-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .thoughts-section th, .thoughts-section td {
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            padding: 12px;
+            text-align: left;
+            color: #e0e0e0;
+        }
+
+        .thoughts-section th {
+            background-color: rgba(0, 255, 255, 0.1);
+            color: #0ff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .thoughts-section tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .thoughts-section tr:hover {
+            background-color: rgba(0, 255, 255, 0.05);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 25px;
+            text-align: center;
+            margin-top: auto;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        @media (max-width: 992px) {
+            .player-card {
+                width: 250px;
+            }
+            h3 {
+                font-size: 2.5em;
+            }
+            .coach-card {
+                width: 280px;
+            }
+            .thoughts-section {
+                padding: 25px;
+                margin: 40px 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                justify-content: flex-start;
+                padding-bottom: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                margin-right: 0;
+                margin-top: 20px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .title {
+                position: static;
+                transform: none;
+                margin-top: 40px;
+            }
+
+            .title h1 {
+                font-size: 48px;
+            }
+
+            h2 {
+                margin: 30px 15px 15px;
+                font-size: 2em;
+            }
+
+            .team-grid {
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .player-card {
+                width: 90%;
+                max-width: 350px;
+            }
+            h3 {
+                font-size: 2em;
+            }
+            .coach-card {
+                width: 90%;
+                max-width: 300px;
+            }
+            .thoughts-section {
+                padding: 20px;
+                margin: 30px 10px;
+            }
+            .thoughts-section h3 {
+                font-size: 1.4em;
+            }
+            .thoughts-section th, .thoughts-section td {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            .social-icons a {
+                font-size: 24px;
+            }
+
+            .coach-card h3 {
+                font-size: 1.6em;
+            }
+            .coach-card p {
+                font-size: 1em;
+            }
+            .thoughts-section h3 {
+                font-size: 1.2em;
+            }
+            .thoughts-section p, .thoughts-section ul li {
+                font-size: 0.9em;
+            }
+            .thoughts-section table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="ClubInfo.html">Club Info</a></li>
+                <li><a href="MatchCenter.html">Match Center</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="Team.html" class="active">Team</a></li>
+            </ul>
+        </nav>
+        <div class="title">
+            <h1>Meet Our Team</h1>
+        </div>
+    </header>
+
+    <main>
+        <h2>Meet the Players</h2>
+        <div class="team-grid">
+
+            <div class="player-card">
+                <h3>ሳምሶን (Samson)</h3>
+                <p><strong>Position:</strong> Forward (አጥቂ)</p>
+                <p><strong>Age:</strong> 26</p>
+                <p><strong>Nationality:</strong> Ethiopian (ኢትዮጵያዊ)</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <h3>ወንደሰን (Wendesen)</h3>
+                <p><strong>Position:</strong> Midfielder (አማካይ)</p>
+                <p><strong>Age:</strong> 24</p>
+                <p><strong>Nationality:</strong> Ethiopian (ኢትዮጵያዊ)</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <h3>ፍቅረሚካኤል (Fikeremikael)</h3>
+                <p><strong>Position:</strong> Defender (ተከላካይ)</p>
+                <p><strong>Age:</strong> 25</p>
+                <p><strong>Nationality:</strong> Ethiopian (ኢትዮጵያዊ)</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        ---
+
+        <h2>Coaching Staff</h2>
+        <div class="coach-card">
+            <h3>ደገረገ ይግዛው (Degarege Yigzaw)</h3>
+            <p><strong>Role:</strong> Head Coach (ዋና አሰልጣኝ)</p>
+            <p><strong>Announced:</strong> September 2022</p>
+            <p><strong>Note:</strong> Past player of Bahir Dar Kenema FC & Saint George.</p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="thoughts-section">
+            <h2>Current Thoughts on Ethiopian Football (as of June 2025)</h2>
+
+            <p>Ethiopian football is a vibrant and passionate landscape, constantly evolving. Here are some insights into the most popular teams and influential coaches, reflecting both historical significance and recent developments in the 2024/2025 season.</p>
+
+            <h3>Most Popular Teams in Ethiopia</h3>
+            <p>Popularity in Ethiopian football is a blend of historical success, current league performance, devoted fan bases, and regional pride. As of mid-2025, here's how the landscape looks:</p>
+            <ul>
+                <li><strong>ቅዱስ ጊዮርጊስ (Saint George S.C.):</strong> Historically, "ኪዱስ ጊዮርጊስ" remains the giant of Ethiopian football. With a record 24 Premier League titles and a deep-rooted, widespread fan base, they consistently draw the largest crowds, especially in rivalry matches. Their legacy ensures enduring popularity, even when they aren't leading the table (currently **7th** in 2024/2025).</li>
+                <li><strong>ኢትዮጵያ ቡና (Ethiopian Coffee S.C.):</strong> "ኢትዮጵያ ቡና" boasts one of the most passionate and vocal fan bases. Their vibrant support and consistent challenge for top honors make them perpetually popular. They are currently performing very strongly, sitting at **2nd place** in the 2024/2025 Premier League.</li>
+                <li><strong>ባህር ዳር ከነማ (Bahir Dar Kenema FC):</strong> Your own club, "ባህር ዳር ከነማ", has experienced a significant surge in popularity. Their strong and consistent performance in recent seasons, including a fantastic **3rd place** finish in the 2024/2025 Ethiopian Premier League, has solidified their status as a major force and a fan favorite, particularly within the Amhara region. Their home support is truly remarkable.</li>
+                <li><strong>ኢትዮጵያ መድን (Ethiopian Insurance Corporation S.C.):</strong> A huge talking point! "ኢትዮጵያ መድን" has made headlines by **clinching the 2024/2025 Ethiopian Premier League title** as of early June 2025, marking a monumental achievement. This recent success will undoubtedly propel their popularity and fan engagement to new heights. They finished the season in **1st place**.</li>
+                <li><strong>ፋሲል ከነማ (Fasil Kenema S.C.):</strong> "ፋሲል ከነማ" maintains strong regional popularity, especially following their Premier League title win a few seasons ago. They consistently attract large crowds in Gondar and remain a respected top-tier side, even if their 2024/2025 season sees them at **11th place**.</li>
+                <li><strong>ሀዲያ ሆሳዕና (Hadiya Hossana F.C.):</strong> A consistent challenger in the league, "ሀዲያ ሆሳዕና" has a dedicated following and contributes significantly to the league's competitive nature. They are often found in the upper half of the league table, finishing **5th** in 2024/2025.</li>
+            </ul>
+
+            <h3>Famous Ethiopian Football Coaches</h3>
+            <p>The coaching scene in Ethiopia is dynamic, with both seasoned veterans and rising stars making their mark. Here are some of the most recognized names:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Coach (አሰልጣኝ)</th>
+                        <th>Notable Achievement / Current Role</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ገብረመድህን ኃይሌ (Gebremedhin Haile)</strong></td>
+                        <td>2024/2025 Ethiopian Premier League Winner (with Ethiopian Insurance FC)</td>
+                        <td>Achieved historic title win with "ኢትዮጵያ መድን". Highly regarded for tactical prowess.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ደገረገ ይግዛው (Degarege Yigzaw)</strong></td>
+                        <td>Head Coach, ባህር ዳር ከነማ (Bahir Dar Kenema FC)</td>
+                        <td>Leading Bahir Dar Kenema to a strong **3rd place** finish in 2024/2025. Former player for Bahir Dar & Saint George.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>መሳፍንት ተፈሪ (Mesay Teferi)</strong></td>
+                        <td>Head Coach, Ethiopian National Team (ዋልያዎቹ)</td>
+                        <td>Current national team coach, holding a pivotal role in Ethiopian football.</td>
+                    </tr>
+                     <tr>
+                        <td><strong>ሰወኔት ቢሻው (Sewnet Bishaw)</strong></td>
+                        <td>Led Walia Ibex to AFCON 2013; 2005 CECAFA Cup Winner</td>
+                        <td>Highly respected for bringing national team back to AFCON after 31 years.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ወበቱ አባተ (Wubetu Abate)</strong></td>
+                        <td>Former National Team Coach; Managed several top clubs (e.g., Fasil Kenema)</td>
+                        <td>Prominent and experienced coach in the Ethiopian Premier League.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>አብርሃም መብራቱ (Abraham Mebratu)</strong></td>
+                        <td>Led Yemen to first-ever Asian Cup finals; Former Ethiopia National Team Coach</td>
+                        <td>Brings valuable international coaching experience.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>አስራት ኃይሌ (Asrat Haile)</strong></td>
+                        <td>2x CECAFA Cup Winner (2001, 2004 with Ethiopia)</td>
+                        <td>Legendary figure, known as 'The Sword'. (Deceased October 2024)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>አሰፋ ፍሬው (Firew Hailegebreal)</strong></td>
+                        <td>2024/2025 FUFA Women Super League Winner (with Kampala Queens FC, Uganda)</td>
+                        <td>Notable success coaching women's football abroad, raising Ethiopian coaching profile.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>መንግስቱ ወርቁ (Mengistu Worku)</strong></td>
+                        <td>1962 AFCON Winner (as player); 1987 CECAFA Cup Winner (as coach)</td>
+                        <td>A true legend of Ethiopian football, pivotal in its golden era.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2025 Bahir Dar Kenema FC. Developed by Web PRAROZ. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
