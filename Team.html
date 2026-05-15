@@ -5,196 +5,208 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Team - Bahir Dar Kenema FC</title>
     <style>
+        /* Basic body styling with the football.jpg background */
         body {
-            background-image: url('football.jpg.png');
+            background-image: url('football.jpg.png'); /* Note: Changed to .png as per your code */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            background-attachment: fixed;
-            color: #fff;
+            background-attachment: fixed; /* Keeps background fixed when scrolling */
+            color: #fff; /* White text for better contrast on dark background */
             font-family: 'Arial', sans-serif;
             margin: 0;
-            min-height: 100vh;
+            min-height: 100vh; /* Ensures the body takes at least the full viewport height */
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Allows footer to stick to the bottom */
         }
 
+        /* Header styling, covers full height of viewport initially */
         header {
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
             height: 100vh;
             position: relative;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
+            justify-content: space-between; /* Pushes nav to top, title to center */
+            align-items: center; /* Centers items horizontally */
+            box-sizing: border-box; /* Include padding in height calculation */
         }
 
+        /* Navigation bar styling */
         nav {
-            width: 100%;
-            margin-top: 10px;
+            width: 100%; /* Take full width of header */
+            margin-top: 10px; /* Space from the top */
         }
 
         ul {
-            list-style-type: none;
+            list-style-type: none; /* Remove bullet points */
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: flex-end;
-            margin-right: 40px;
+            display: flex; /* Use flexbox for horizontal menu */
+            justify-content: flex-end; /* Align menu items to the right */
+            margin-right: 40px; /* Right margin for alignment */
             font-size: 16px;
         }
 
         ul li {
-            margin-left: 15px;
+            margin-left: 15px; /* Space between menu items */
         }
 
         ul li a {
-            text-decoration: none;
+            text-decoration: none; /* Remove underline */
             color: #fff;
             padding: 6px 12px;
-            border: 1px solid transparent;
-            transition: 0.3s ease;
-            white-space: nowrap;
+            border: 1px solid transparent; /* Transparent border for hover effect */
+            transition: 0.3s ease; /* Smooth transition for hover effects */
+            white-space: nowrap; /* Prevent text wrapping within nav links */
         }
 
         ul li a:hover,
-        ul li a.active {
+        ul li a.active { /* Styles for hover and active link */
             background-color: #fff;
             color: #000;
-            border-radius: 4px;
+            border-radius: 4px; /* Slightly rounded corners on hover */
         }
 
+        /* Main title styling */
         .title {
-            position: absolute;
+            position: absolute; /* Absolute positioning relative to header */
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); /* Center horizontally and vertically */
             text-align: center;
-            width: 90%;
+            width: 90%; /* Ensure responsiveness */
             max-width: 800px;
         }
 
         .title h1 {
             color: #fff;
             font-size: 64px;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Text shadow for depth */
             margin: 0;
         }
 
+        /* Colorful text for the title - keeping for general purpose if needed, but not actively used for "Meet Our Team" */
         .title h1 .colorful-text {
-            color: #FFFF00;
-            text-shadow: 0 0 15px rgba(255, 255, 0, 0.8), 0 0 25px rgba(255, 255, 0, 0.6);
+            color: #FFFF00; /* Bright Yellow */
+            text-shadow: 0 0 15px rgba(255, 255, 0, 0.8), 0 0 25px rgba(255, 255, 0, 0.6); /* Yellow glow */
             font-weight: bold;
             font-style: italic;
         }
 
+        /* Main content area */
         main {
-            flex: 1;
-            padding: 20px;
+            flex: 1; /* Allows main content to grow and push footer down */
+            padding: 20px; /* Add some padding around the content */
         }
 
         h2 {
             text-align: center;
             margin: 50px 20px 20px;
-            color: #0ff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            color: #0ff; /* Cyan color for headings */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Shadow for headings */
         }
 
+        /* Grid for player cards */
         .team-grid {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
+            justify-content: center; /* Center cards horizontally */
+            flex-wrap: wrap; /* Allow cards to wrap to next line */
+            gap: 30px; /* Space between cards */
             padding: 20px;
         }
 
+        /* Individual player card styling */
         .player-card {
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0,0,0,0.7); /* Slightly more opaque background for cards */
             border-radius: 10px;
-            width: 280px;
+            width: 280px; /* Slightly larger fixed width for better presentation */
             padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Stronger shadow */
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,255,255,0.2);
-            box-sizing: border-box;
-            display: flex;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+            border: 1px solid rgba(0,255,255,0.2); /* Subtle cyan border */
+            box-sizing: border-box; /* Include padding in width calculation */
+            display: flex; /* Use flexbox for vertical alignment within the card */
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
         }
 
         .player-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,255,255,0.4);
+            transform: translateY(-8px); /* Lift effect on hover */
+            box-shadow: 0 8px 25px rgba(0,255,255,0.4); /* Glow effect on hover */
         }
 
+        /* Player image styling - explicitly hidden */
         .player-image {
             display: none;
         }
 
         h3 {
-            margin: 20px 0 10px;
-            color: #0ff;
-            font-size: 3em;
-            text-shadow: 2px 2px 8px rgba(0,255,255,0.6);
+            margin: 20px 0 10px; /* More margin around the large name */
+            color: #0ff; /* Player name color */
+            font-size: 3em; /* **MAKE THE NAME MUCH LARGER** */
+            text-shadow: 2px 2px 8px rgba(0,255,255,0.6); /* Add a glow effect to the name */
         }
 
         p {
             margin: 5px 0;
-            color: #e0e0e0;
-            font-size: 1em;
+            color: #e0e0e0; /* Lighter text color for details */
+            font-size: 1em; /* Standard font size for details */
         }
 
+        /* Social icons styling */
         .social-icons {
-            margin-top: 20px;
+            margin-top: 20px; /* More space above icons */
         }
 
         .social-icons a {
-            margin: 0 12px;
+            margin: 0 12px; /* More space between icons */
             display: inline-block;
-            color: #0ff;
-            font-size: 28px;
+            color: #0ff; /* Cyan color for icons */
+            font-size: 28px; /* Larger icons */
             text-decoration: none;
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-icons a:hover {
-            color: #fff;
-            transform: scale(1.2);
+            color: #fff; /* White on hover */
+            transform: scale(1.2); /* Slight scale effect on hover */
         }
 
+        /* Coach Card Styling */
         .coach-card {
             background-color: rgba(0,0,0,0.7);
             border-radius: 10px;
-            width: 300px;
-            padding: 30px;
-            box-shadow: 0 6px 20px rgba(0,255,255,0.3);
+            width: 300px; /* Slightly wider for a coach card */
+            padding: 30px; /* More padding */
+            box-shadow: 0 6px 20px rgba(0,255,255,0.3); /* Stronger, cyan-tinted shadow */
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid #0ff;
-            margin: 40px auto 20px auto;
+            border: 2px solid #0ff; /* Prominent cyan border */
+            margin: 40px auto 20px auto; /* Center the card and give it good vertical space */
             box-sizing: border-box;
-            display: flex;
+            display: flex; /* Use flexbox for vertical alignment within the card */
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
         }
 
         .coach-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,255,255,0.6);
+            transform: translateY(-10px); /* Lift more on hover */
+            box-shadow: 0 10px 30px rgba(0,255,255,0.6); /* More intense glow */
         }
 
+        /* Coach image styling - explicitly hidden */
         .coach-image {
             display: none;
         }
 
         .coach-card h3 {
             font-size: 2.2em;
-            color: #fff;
+            color: #fff; /* White name for coach */
             text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
             margin-bottom: 10px;
         }
@@ -204,6 +216,7 @@
             color: #c0c0c0;
         }
 
+        /* Thoughts Section Styling */
         .thoughts-section {
             background-color: rgba(0, 0, 0, 0.75);
             border-radius: 10px;
@@ -215,7 +228,7 @@
         }
 
         .thoughts-section h2 {
-            color: #FFFF00;
+            color: #FFFF00; /* Yellow for this section's heading */
             text-shadow: 1px 1px 5px rgba(255, 255, 0, 0.7);
             margin-top: 0;
             margin-bottom: 30px;
@@ -223,7 +236,7 @@
         }
 
         .thoughts-section h3 {
-            color: #0ff;
+            color: #0ff; /* Cyan for subheadings */
             font-size: 1.6em;
             margin-top: 25px;
             margin-bottom: 15px;
@@ -252,15 +265,16 @@
         }
 
         .thoughts-section ul li strong {
-            color: #fff;
+            color: #fff; /* Strong text in white */
         }
 
+        /* Table specific styles for coaches */
         .thoughts-section table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
             margin-bottom: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5); /* Slightly darker for table background */
         }
 
         .thoughts-section th, .thoughts-section td {
@@ -271,39 +285,41 @@
         }
 
         .thoughts-section th {
-            background-color: rgba(0, 255, 255, 0.1);
+            background-color: rgba(0, 255, 255, 0.1); /* Light cyan background for headers */
             color: #0ff;
             font-weight: bold;
             text-transform: uppercase;
         }
 
         .thoughts-section tr:nth-child(even) {
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.3); /* Slightly different background for even rows */
         }
 
         .thoughts-section tr:hover {
-            background-color: rgba(0, 255, 255, 0.05);
+            background-color: rgba(0, 255, 255, 0.05); /* Subtle hover effect */
         }
 
+        /* Footer styling */
         footer {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.8); /* Darker footer background */
             color: #fff;
             padding: 25px;
             text-align: center;
-            margin-top: auto;
+            margin-top: auto; /* Pushes footer to the bottom of the page */
             font-size: 0.9em;
-            border-top: 1px solid rgba(0, 255, 255, 0.2);
+            border-top: 1px solid rgba(0, 255, 255, 0.2); /* Subtle top border */
         }
 
+        /* --- Responsive Design Media Queries --- */
         @media (max-width: 992px) {
             .player-card {
-                width: 250px;
+                width: 250px; /* Adjust card width for medium screens */
             }
             h3 {
-                font-size: 2.5em;
+                font-size: 2.5em; /* Adjust for medium screens */
             }
             .coach-card {
-                width: 280px;
+                width: 280px; /* Adjust coach card for medium screens */
             }
             .thoughts-section {
                 padding: 25px;
@@ -354,10 +370,10 @@
                 max-width: 350px;
             }
             h3 {
-                font-size: 2em;
+                font-size: 2em; /* Adjust for small screens */
             }
             .coach-card {
-                width: 90%;
+                width: 90%; /* Coach card responsive width */
                 max-width: 300px;
             }
             .thoughts-section {
@@ -368,7 +384,7 @@
                 font-size: 1.4em;
             }
             .thoughts-section th, .thoughts-section td {
-                padding: 8px;
+                padding: 8px; /* Smaller padding for table cells on mobile */
                 font-size: 0.9em;
             }
         }
@@ -408,8 +424,8 @@
             }
             .thoughts-section table {
                 display: block;
-                overflow-x: auto;
-                white-space: nowrap;
+                overflow-x: auto; /* Make table horizontally scrollable if content overflows */
+                white-space: nowrap; /* Prevent text wrapping inside cells */
             }
         }
     </style>
@@ -421,9 +437,9 @@
         <nav>
             <ul>
                 <li><a href="Home.html">Home</a></li>
-                <li><a href="ClubInfo.html">Club Info</a></li>
-                <li><a href="MatchCenter.html">Match Center</a></li>
-                <li><a href="News.html">News</a></li>
+                <li><a href="Club info.html">Club Info</a></li>
+                <li><a href="Match center.html">Match Center</a></li>
+                <li><a href="news.html">News</a></li>
                 <li><a href="Team.html" class="active">Team</a></li>
             </ul>
         </nav>
@@ -442,9 +458,9 @@
                 <p><strong>Age:</strong> 26</p>
                 <p><strong>Nationality:</strong> Ethiopian (ኢትዮጵያዊ)</p>
                 <div class="social-icons">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
@@ -454,9 +470,9 @@
                 <p><strong>Age:</strong> 24</p>
                 <p><strong>Nationality:</strong> Ethiopian (ኢትዮጵያዊ)</p>
                 <div class="social-icons">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
@@ -466,9 +482,9 @@
                 <p><strong>Age:</strong> 25</p>
                 <p><strong>Nationality:</strong> Ethiopian (ኢትዮጵያዊ)</p>
                 <div class="social-icons">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
@@ -483,9 +499,9 @@
             <p><strong>Announced:</strong> September 2022</p>
             <p><strong>Note:</strong> Past player of Bahir Dar Kenema FC & Saint George.</p>
             <div class="social-icons">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
 
