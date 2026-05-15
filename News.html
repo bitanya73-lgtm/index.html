@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bahir Dar Kenema FC - News</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-image: url('images/football.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      color: #f0f8ff;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 20px 40px;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .title h1 {
+      color: #FFD700;
+      font-size: 36px;
+      margin: 0;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.9);
+      letter-spacing: 2px;
+    }
+
+    header ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    header ul li {
+      display: inline;
+    }
+
+    header ul li a {
+      color: #FFD700;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: 0.4s ease;
+    }
+
+    header ul li a:hover {
+      background-color: #007bff;
+      color: white;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 30px;
+      font-size: 44px;
+      color: #007bff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      letter-spacing: 1px;
+    }
+
+    .news-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.65);
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 123, 255, 0.4);
+      padding-bottom: 40px;
+    }
+
+    .news-article {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 25px;
+      margin-bottom: 25px;
+      border-left: 6px solid #FFD700;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4), 0 0 10px rgba(0, 123, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .news-article:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.6), 0 0 20px rgba(0, 123, 255, 0.5);
+    }
+
+    .news-article h3 {
+      color: #FFD700;
+      margin-bottom: 15px;
+      font-size: 28px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .news-article p.date {
+      font-size: 1em;
+      color: #a9a9a9;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .news-article p.content {
+      line-height: 1.7;
+      font-size: 16px;
+      color: #e0e0e0;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #FFD700;
+      padding: 30px;
+      text-align: center;
+      margin-top: 60px;
+      font-size: 15px;
+      border-top: 3px solid #007bff;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 20px;
+      }
+      header ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      header ul li a {
+        padding: 6px 12px;
+        font-size: 1em;
+      }
+      .title h1 {
+        font-size: 28px;
+      }
+      h2 {
+        font-size: 36px;
+      }
+      .news-container {
+        width: 95%;
+        padding: 15px;
+      }
+      .news-article {
+        padding: 20px;
+      }
+      .news-article h3 {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .title h1 {
+        font-size: 24px;
+      }
+      h2 {
+        font-size: 28px;
+        margin-top: 40px;
+      }
+      header ul li a {
+        font-size: 0.95em;
+        padding: 6px 12px;
+      }
+      .news-article h3 {
+        font-size: 20px;
+      }
+      .news-article p.content {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">
+      <h1>Bahir Dar Kenema FC</h1>
+    </div>
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="ClubInfo.html">Club Info</a></li>
+      <li><a href="MatchCenter.html">Match Center</a></li>
+      <li><a href="News.html">News</a></li>
+      <li><a href="Team.html">Team</a></li>
+    </ul>
+  </header>
+
+  <h2>✨ Latest Club News & Updates ✨</h2>
+
+  <div class="news-container">
+    <div class="news-article">
+      <h3>🏆 Youth Academy Wins National Championship!</h3>
+      <p class="date">May 25, 2025</p>
+      <p class="content">
+        Our promising young talents have done it! The Bahir Dar Kenema FC Youth Academy U17 squad clinched the Ethiopian Youth National Championship title in a thrilling final match against Adama City FC's youth team, winning 2-1 after extra time. This victory highlights the strength of our youth development program and promises a bright future for the senior team. Celebrations are planned for next week at the stadium.
+      </p>
+    </div>
+
+    <div class="news-article">
+      <h3>🤝 Partnership with Local Charity "Hope for Youth" Announced</h3>
+      <p class="date">May 20, 2025</p>
+      <p class="content">
+        Bahir Dar Kenema FC is proud to announce a new strategic partnership with local charity "Hope for Youth". This collaboration aims to provide sports equipment, coaching, and educational support to underprivileged children in our community. As part of the initiative, several first-team players will visit local schools and conduct training sessions. We believe in giving back to the community that supports us.
+      </p>
+    </div>
+
+    <div class="news-article">
+      <h3>📈 Coach's Corner: Analyzing Our Performance in the Premier League</h3>
+      <p class="date">May 18, 2025</p>
+      <p class="content">
+        Head Coach Ato Getachew discusses the team's recent form and upcoming challenges in the Ethiopian Premier League. "We've shown great resilience in recent matches, especially the away draw against Hawassa City SC. Our focus remains on consistency and improving our attacking third efficiency," Getachew stated. He emphasized the importance of fan support for the final stretch of the season.
+      </p>
+    </div>
+
+    <div class="news-article">
+      <h3>🚑 Injury Update: Captain Mesfin Tadesse Recovering Well</h3>
+      <p class="date">May 16, 2025</p>
+      <p class="content">
+        Good news for Bahir Dar Kenema FC fans! Club captain Mesfin Tadesse, who sustained a hamstring injury three weeks ago, is making excellent progress in his recovery. The medical team anticipates his return to full training within the next two weeks. His leadership and experience will be a significant boost for the crucial upcoming fixtures.
+      </p>
+    </div>
+
+    <div class="news-article">
+      <h3>🏟️ Stadium Renovation Plans Underway</h3>
+      <p class="date">May 10, 2025</p>
+      <p class="content">
+        Exciting times ahead for our home ground! Initial plans for the renovation and expansion of Bahir Dar Stadium have been approved. The project aims to enhance spectator experience, improve training facilities, and meet international standards. Further details on the phases of construction and expected completion dates will be shared soon.
+      </p>
+    </div>
+
+    <div class="news-article">
+      <h3>🌟 Player Spotlight: Birhanu Bekele's Rising Star</h3>
+      <p class="date">May 05, 2025</p>
+      <p class="content">
+        Forward Birhanu Bekele has been a revelation this season, with his dazzling dribbles and crucial goals making him a fan favorite. We sit down with Birhanu to discuss his journey, inspirations, and his aspirations for Bahir Dar Kenema FC. "The support from the fans drives me, and I want to help the club achieve its highest goals," he shared.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Bahir Dar Kenema FC. Developed by Web PRAROZ. All rights reserved.</p>
+  </footer>
+</body>
+</html>
